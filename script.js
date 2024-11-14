@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
-    // Select all "Show Details" buttons
+
+    // Show Details Toggle Functionality
     const buttons = document.querySelectorAll(".project button");
 
     buttons.forEach(button => {
@@ -19,7 +20,67 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
     });
+
+    // Form Validation
+    const form = document.getElementById("contactForm");
+
+    // Listen for form submission
+    form.addEventListener("submit", function(event) {
+        let isValid = true;
+
+        // Clear any previous error messages
+        document.querySelectorAll(".error").forEach(error => error.remove());
+
+        // Validate Name
+        const nameField = document.getElementById("name");
+        if (nameField.value.trim().length < 2) {
+            displayError(nameField, "Name must be at least 2 characters long.");
+            isValid = false;
+        }
+
+        // Validate Email
+        const emailField = document.getElementById("email");
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test(emailField.value.trim())) {
+            displayError(emailField, "Please enter a valid email address.");
+            isValid = false;
+        }
+
+        // Validate Message
+        const messageField = document.getElementById("message");
+        if (messageField.value.trim().length < 10) {
+            displayError(messageField, "Message must be at least 10 characters long.");
+            isValid = false;
+        }
+
+        // Validate Phone Number (allowing flexible input)
+        const phoneField = document.getElementById("phone");
+        const phonePattern = /^[0-9\s\(\)-]*$/;  // This allows digits, spaces, parentheses, and dashes
+        if (phoneField.value && !phonePattern.test(phoneField.value.trim())) {
+            displayError(phoneField, "Please enter a valid phone number.");
+            isValid = false;
+        }
+
+        // Prevent form submission if any field is invalid
+        if (!isValid) {
+            event.preventDefault();
+        }
+    });
+
+    // Function to display error message
+    function displayError(field, message) {
+        const error = document.createElement("div");
+        error.className = "error";
+        error.style.color = "red";
+        error.style.fontSize = "0.9em";
+        error.textContent = message;
+        field.parentNode.insertBefore(error, field.nextSibling);
+    }
+
 });
+
+
+
 
 
 

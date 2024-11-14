@@ -46,7 +46,7 @@
             <div class="project">
                 <h3>Project 2</h3>
                 <p>A brief description of Project 2.</p>
-                <button data-details-id="details1">Show Details</button>
+                <button data-details-id="details2">Show Details</button>
                 <div id="details2" class="project-details" style="display: none;">
                     <p>More detailed information about Project 2 goes here.</p>
                 </div>
@@ -59,7 +59,28 @@
     <!-- Contact Section -->
     <section id="contact">
         <h2>Contact Me</h2>
-        <p>In the future, this will be a contact form. For now, just leave this as a placeholder.</p>
+        
+        <!-- Contact Form -->
+        <form id="contactForm" action="#" method="post">
+            <!-- Name Field -->
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required minlength="2" placeholder="Your Name">
+
+            <!-- Email Field -->
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required placeholder="Your Email">
+
+            <!-- Message Field -->
+            <label for="message">Message</label>
+            <textarea id="message" name="message" required minlength="10" placeholder="Your Message"></textarea>
+
+            <!-- Optional Phone Number Field -->
+            <label for="phone">Phone Number (optional)</label>
+            <input type="tel" id="phone" name="phone" placeholder="Your Phone Number" pattern="[0-9\s\(\)-]*" title="Please enter a valid phone number" />
+
+            <!-- Submit Button -->
+            <button type="submit">Send Message</button>
+        </form>
     </section>
 
     <!-- Footer Section -->
@@ -68,3 +89,8 @@
     </footer>
 </body>
 </html>
+
+
+
+
+
