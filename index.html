@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Portfolio</title>
     <link rel="stylesheet" href="css/styles.css">
-
+    <script src="script.js" defer></script>
 </head>
 <body>
     <!-- Header Section -->
@@ -29,7 +29,31 @@
     <!-- Projects Section -->
     <section id="projects">
         <h2>My Projects</h2>
-        <p>This is a placeholder for your projects. In future chapters, you’ll add real projects here.</p>
+        
+        <!-- Gallery Layout -->
+        <div class="gallery">
+            <!-- Example Project 1 -->
+            <div class="project">
+                <h3>Project 1</h3>
+                <p>A brief description of Project 1.</p>
+                <button data-details-id="details1">Show Details</button>
+                <div id="details1" class="project-details" style="display: none;">
+                    <p>More detailed information about Project 1 goes here.</p>
+                </div>
+            </div>
+
+            <!-- Example Project 2 -->
+            <div class="project">
+                <h3>Project 2</h3>
+                <p>A brief description of Project 2.</p>
+                <button data-details-id="details1">Show Details</button>
+                <div id="details2" class="project-details" style="display: none;">
+                    <p>More detailed information about Project 2 goes here.</p>
+                </div>
+            </div>
+
+            <!-- Additional projects can be added in a similar format -->
+        </div>
     </section>
 
     <!-- Contact Section -->
