@@ -79,8 +79,22 @@ document.addEventListener("DOMContentLoaded", function() {
 
 });
 
+const toggleThemeButton = document.getElementById('toggleTheme');
+toggleThemeButton.addEventListener('click', function() {
+    document.body.classList.toggle('dark-mode');
+    localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+});
 
+if (localStorage.getItem('theme') === 'dark') {
+    document.body.classList.add('dark-mode');
+}
 
-
-
+document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        const category = btn.dataset.category;
+        document.querySelectorAll('.project').forEach(proj => {
+            proj.style.display = proj.dataset.category === category || category === 'all' ? 'block' : 'none';
+        });
+    });
+});
 
